@@ -1,0 +1,40 @@
+﻿@model SalesWebMVC.Models.ViewModels.SellerFormViewModel;
+
+@{ ViewData["Title"] = "Edit seller"; }
+
+<h2 style="margin-top: 50px; text-align: center;">@ViewData["Title"] </h2>
+
+<hr />
+
+<div class="container" style="display: flex; align-items: center; justify-content: center;">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Seller.Id" />
+            <div class="form-group">
+                <label asp-for="Seller.Name" class="control-label"></label>
+                <input asp-for="Seller.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.Email" class="control-label"></label>
+                <input asp-for="Seller.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.BirthDate" class="control-label"></label>
+                <input asp-for="Seller.BirthDate" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.BaseSalary" class="control-label"></label>
+                <input asp-for="Seller.BaseSalary" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Seller.DepartmentsId" class="control-label"></label>
+                <select asp-for="Seller.DepartmentsId" asp-items="@(new SelectList(Model.Departments,"Id", "Name"))" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-success" style="margin-top: 20px;" value="Save"></input>
+                <a class="btn btn-primary" style="margin: 20px 0 0 10px" asp-action="Index">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
